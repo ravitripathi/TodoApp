@@ -9,9 +9,21 @@
 import UIKit
 import Kingfisher
 
-class ViewController2: UIViewController {
+class ViewController2: UIViewController, UIWebViewDelegate  {
     //MARK: - Lifecycle Methods
 
+    var webView: UIWebView!
+    
+    @IBAction func profileTap(_ sender: UITapGestureRecognizer) {
+        print("Profile tapped")
+        webView = UIWebView(frame: UIScreen.main.bounds)
+        webView.delegate = self
+        view.addSubview(webView)
+        if let url = URL(string: "http://github.com/ravitripathi") {
+            let request = URLRequest(url: url)
+            webView.loadRequest(request)
+        }
+     }
     @IBOutlet weak var linkStack: UIStackView!
     
     let url = URL(string: "https://graph.facebook.com/1171385879556730/picture?type=large")!
@@ -37,8 +49,6 @@ class ViewController2: UIViewController {
     
     override func viewDidLoad() {
         print("2: viewDidLoad")
-        
-        
         profilePic.kf.setImage(with: url)
     }
 }
