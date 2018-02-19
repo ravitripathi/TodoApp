@@ -7,9 +7,16 @@
 //
 
 import UIKit
+import Kingfisher
 
 class ViewController2: UIViewController {
     //MARK: - Lifecycle Methods
+
+    @IBOutlet weak var linkStack: UIStackView!
+    
+    let url = URL(string: "https://graph.facebook.com/1171385879556730/picture?type=large")!
+    
+    @IBOutlet weak var profilePic: UIImageView!
     
     override func viewWillAppear(_ animated: Bool) {
         print("2: viewWillAppear: Disappeared -> Appearing or Disappearing -> Appearing")
@@ -29,9 +36,12 @@ class ViewController2: UIViewController {
     
     
     override func viewDidLoad() {
-         print("2: viewDidLoad")
-    }
-    
+        print("2: viewDidLoad")
         
+        
+        profilePic.kf.setImage(with: url)
+    }
 }
+
+
 

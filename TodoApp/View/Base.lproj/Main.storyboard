@@ -26,6 +26,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
+                                <color key="tintColor" red="0.11121001094579697" green="0.56144338846206665" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </tableViewCell>
                         </prototypes>
                         <connections>
@@ -34,8 +35,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="TodoApp" id="grd-2x-1Sc">
-                        <barButtonItem key="leftBarButtonItem" title="About" style="plain" id="83D-a1-d06">
-                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <barButtonItem key="leftBarButtonItem" title="About" id="83D-a1-d06">
                             <connections>
                                 <segue destination="GlS-Jc-RdM" kind="show" id="1vL-Nb-ZvW"/>
                             </connections>
@@ -59,10 +59,50 @@
                     <view key="view" contentMode="scaleToFill" id="KYU-ou-y2r">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="MmY-fD-B6u">
+                                <rect key="frame" x="0.0" y="64" width="375" height="539"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="TodoApp v1.0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Te-IE-ZSU">
+                                        <rect key="frame" x="136" y="0.0" width="103.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="AGb-eJ-hCj">
+                                        <rect key="frame" x="67" y="20.5" width="241" height="478.5"/>
+                                    </imageView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="31w-Jm-FPp">
+                                        <rect key="frame" x="124" y="499" width="127" height="40"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="github" translatesAutoresizingMaskIntoConstraints="NO" id="GfP-oS-agC">
+                                                <rect key="frame" x="0.0" y="0.0" width="40" height="40"/>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="/ravitripathi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c8L-3c-X1S">
+                                                <rect key="frame" x="40" y="0.0" width="87" height="40"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="MmY-fD-B6u" firstAttribute="centerY" secondItem="KYU-ou-y2r" secondAttribute="centerY" id="LxP-bJ-qna"/>
+                            <constraint firstItem="MmY-fD-B6u" firstAttribute="top" secondItem="DaO-pD-XyU" secondAttribute="top" id="dmI-K5-Rff"/>
+                            <constraint firstItem="MmY-fD-B6u" firstAttribute="centerX" secondItem="KYU-ou-y2r" secondAttribute="centerX" id="dw1-EJ-uMK"/>
+                            <constraint firstItem="MmY-fD-B6u" firstAttribute="leading" secondItem="DaO-pD-XyU" secondAttribute="leading" id="nkk-Uh-jmV"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="DaO-pD-XyU"/>
                     </view>
+                    <connections>
+                        <outlet property="linkStack" destination="31w-Jm-FPp" id="T1X-xS-YDa"/>
+                        <outlet property="profilePic" destination="AGb-eJ-hCj" id="sLj-9Z-i99"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wBV-6d-MZD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -91,5 +131,8 @@
             <point key="canvasLocation" x="406" y="134"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="github" width="40" height="40"/>
+    </resources>
     <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

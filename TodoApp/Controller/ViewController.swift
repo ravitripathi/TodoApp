@@ -137,11 +137,18 @@ class ViewController: UITableViewController {
             //When user clicks add item
             
             let newItem = Item()
-            guard case newItem.title = textField.text!, !newItem.title.isEmpty else {
+            
+            if textField.text?.isEmpty ?? true {
+                print("textField is empty")
                 return
+            } else {
+                newItem.title = textField.text!
             }
+
+            
             self.itemArray.append(newItem)
             self.saveItems()
+        
         }
         
         alert.addTextField { (alertTextField) in
