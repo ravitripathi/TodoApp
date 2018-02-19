@@ -50,6 +50,7 @@ class ViewController2: UIViewController, UIWebViewDelegate  {
     override func viewDidLoad() {
         print("2: viewDidLoad")
         profilePic.kf.setImage(with: url)
+    
     }
 }
 
