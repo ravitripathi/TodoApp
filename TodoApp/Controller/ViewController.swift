@@ -14,7 +14,28 @@ class ViewController: UITableViewController {
     let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first?.appendingPathComponent("Items.plist")
     
     
+    
+    //MARK: - Lifecycle Methods
+    
+    override func viewWillAppear(_ animated: Bool) {
+        print("1: viewWillAppear: Disappeared -> Appearing or Disappearing -> Appearing")
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        print("1: viewDidAppear: Appearing -> Appeared")
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        print("1: viewWillDisappear: Appeared -> Disappearing or Appearing -> Disappearing")
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        print("1: viewDidDisappear: Disappearing -> Disappeared")
+    }
+    
+    
     override func viewDidLoad() {
+        print("1: viewDidLoad")
         super.viewDidLoad()
         loadItems()
     }
@@ -49,6 +70,61 @@ class ViewController: UITableViewController {
         saveItems()
     }
     
+    
+
+//    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
+//        let delete = UITableViewRowAction(style: .destructive, title: "Delete") { (action, indexPath) in
+//            // delete item at indexPath
+//            self.itemArray.remove(at: indexPath.row)
+//            tableView.deleteRows(at: [indexPath], with: .fade)
+//            print(self.itemArray)
+//            self.saveItems()
+//        }
+//        let share = UITableViewRowAction(style: .normal, title: "Share") { (action, indexPath) in
+//            print("I want to share: \(self.itemArray[indexPath.row])")
+//        }
+//
+//        let meow = UITableViewRowAction(style: .normal, title: "meow") { (action, indexPath) in
+//            print("I want to meow: \(self.itemArray[indexPath.row])")
+//        }
+//
+//        share.backgroundColor = UIColor.lightGray
+//
+//        return [delete,share,meow]
+//    }
+    
+    //for slide options
+    //Added in ios 11
+    override func tableView(_ tableView: UITableView,
+    leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
+    {
+    let closeAction = UIContextualAction(style: .destructive, title:  "Delete", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+        self.itemArray.remove(at: indexPath.row)
+        tableView.deleteRows(at: [indexPath], with: .fade)
+//        print(self.itemArray)
+        self.saveItems()
+    success(true)
+    })
+    
+    return UISwipeActionsConfiguration(actions: [closeAction])
+    
+    }
+    
+    override func tableView(_ tableView: UITableView,
+                   trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration?
+    {
+        let modifyAction = UIContextualAction(style: .normal, title:  "Edit", handler: { (ac:UIContextualAction, view:UIView, success:(Bool) -> Void) in
+            
+            self.editItem(item: self.itemArray[indexPath.row].title, loc: indexPath.row)
+            success(true)
+        })
+//        modifyAction.image = UIImage(named: "hammer")
+//        modifyAction.backgroundColor = .blue
+//
+        return UISwipeActionsConfiguration(actions: [modifyAction])
+    }
+    
+    
     //MARK: - Add new items
     
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
@@ -69,6 +145,31 @@ class ViewController: UITableViewController {
         
         alert.addTextField { (alertTextField) in
             alertTextField.placeholder = "Create new Item"
+            textField = alertTextField
+        }
+        alert.addAction(action)
+        present(alert,animated: true,completion: nil)
+    }
+    
+    
+    func editItem(item: String, loc: Int){
+        let alert = UIAlertController(title: "Edit Item", message: "", preferredStyle: .alert)
+        var textField = UITextField()
+        
+        
+        let action = UIAlertAction(title: "Ok" , style: .default) { (action) in
+            //When user clicks add item
+            
+            let newItem = Item()
+            newItem.title = textField.text!
+            
+            self.itemArray.remove(at: loc)
+            self.itemArray.insert(newItem, at: loc)
+            self.saveItems()
+        }
+        
+        alert.addTextField { (alertTextField) in
+            alertTextField.text = item
             textField = alertTextField
         }
         alert.addAction(action)
@@ -97,5 +198,6 @@ class ViewController: UITableViewController {
             }
         }
     }
+    
 }
 

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4112FCA5203A9AC900701FDF /* ViewController2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4112FCA4203A9AC900701FDF /* ViewController2.swift */; };
 		415C133B203430A500161159 /* Item.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415C133A203430A500161159 /* Item.swift */; };
 		417B540F2031CAB000223888 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417B540E2031CAB000223888 /* AppDelegate.swift */; };
 		417B54112031CAB000223888 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 417B54102031CAB000223888 /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		4112FCA4203A9AC900701FDF /* ViewController2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController2.swift; sourceTree = "<group>"; };
 		415C133A203430A500161159 /* Item.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Item.swift; sourceTree = "<group>"; };
 		417B540B2031CAB000223888 /* TodoApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodoApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		417B540E2031CAB000223888 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -57,6 +59,7 @@
 			isa = PBXGroup;
 			children = (
 				417B54102031CAB000223888 /* ViewController.swift */,
+				4112FCA4203A9AC900701FDF /* ViewController2.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -172,6 +175,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				417B54112031CAB000223888 /* ViewController.swift in Sources */,
+				4112FCA5203A9AC900701FDF /* ViewController2.swift in Sources */,
 				415C133B203430A500161159 /* Item.swift in Sources */,
 				417B540F2031CAB000223888 /* AppDelegate.swift in Sources */,
 			);
