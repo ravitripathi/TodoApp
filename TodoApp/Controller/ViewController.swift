@@ -137,8 +137,9 @@ class ViewController: UITableViewController {
             //When user clicks add item
             
             let newItem = Item()
-            newItem.title = textField.text!
-            
+            guard case newItem.title = textField.text!, !newItem.title.isEmpty else {
+                return
+            }
             self.itemArray.append(newItem)
             self.saveItems()
         }

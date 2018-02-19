@@ -34,8 +34,8 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="TodoApp" id="grd-2x-1Sc">
-                        <barButtonItem key="leftBarButtonItem" title="Next" id="83D-a1-d06">
-                            <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <barButtonItem key="leftBarButtonItem" title="About" style="plain" id="83D-a1-d06">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <segue destination="GlS-Jc-RdM" kind="show" id="1vL-Nb-ZvW"/>
                             </connections>
@@ -91,4 +91,5 @@
             <point key="canvasLocation" x="406" y="134"/>
         </scene>
     </scenes>
+    <color key="tintColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>
