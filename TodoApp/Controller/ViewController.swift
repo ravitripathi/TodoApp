@@ -128,35 +128,7 @@ class ViewController: UITableViewController {
     //MARK: - Add new items
     
     @IBAction func addButtonPressed(_ sender: UIBarButtonItem) {
-        
-        let alert = UIAlertController(title: "Add new Item", message: "", preferredStyle: .alert)
-        var textField = UITextField()
-        
-        
-        let action = UIAlertAction(title: "Add Item" , style: .default) { (action) in
-            //When user clicks add item
-            
-            let newItem = Item()
-            
-            if textField.text?.isEmpty ?? true {
-                print("textField is empty")
-                return
-            } else {
-                newItem.title = textField.text!
-            }
-
-            
-            self.itemArray.append(newItem)
-            self.saveItems()
-        
-        }
-        
-        alert.addTextField { (alertTextField) in
-            alertTextField.placeholder = "Create new Item"
-            textField = alertTextField
-        }
-        alert.addAction(action)
-        present(alert,animated: true,completion: nil)
+            addItem()
     }
     
     
@@ -207,5 +179,37 @@ class ViewController: UITableViewController {
         }
     }
     
+    
+    public func addItem(){
+        let alert = UIAlertController(title: "Add new Item", message: "", preferredStyle: .alert)
+        var textField = UITextField()
+        
+        
+        let action = UIAlertAction(title: "Add Item" , style: .default) { (action) in
+            //When user clicks add item
+            
+            let newItem = Item()
+            
+            if textField.text?.isEmpty ?? true {
+                print("textField is empty")
+                return
+            } else {
+                newItem.title = textField.text!
+            }
+            
+            
+            self.itemArray.append(newItem)
+            self.saveItems()
+            
+        }
+        
+        alert.addTextField { (alertTextField) in
+            alertTextField.placeholder = "Create new Item"
+            textField = alertTextField
+        }
+        alert.addAction(action)
+        present(alert,animated: true,completion: nil)
+
+    }
 }
 
